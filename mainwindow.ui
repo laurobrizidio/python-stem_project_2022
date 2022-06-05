@@ -48,8 +48,11 @@
       <height>25</height>
      </rect>
     </property>
-    <property name="currentText">
-     <string>Sem Modificações</string>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <property name="maxVisibleItems">
+     <number>5</number>
     </property>
     <item>
      <property name="text">
@@ -64,6 +67,11 @@
     <item>
      <property name="text">
       <string>Escala de Cinza</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>RGB</string>
      </property>
     </item>
    </widget>
@@ -181,6 +189,69 @@
      <rect>
       <x>520</x>
       <y>470</y>
+      <width>49</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Blue</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_slider_value_R">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>530</y>
+      <width>49</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_slider_value_G">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>530</y>
+      <width>49</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Green</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_slider_value_B">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>530</y>
       <width>49</width>
       <height>16</height>
      </rect>
