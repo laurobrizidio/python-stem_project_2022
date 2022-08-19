@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import QMainWindow, QApplication
 from PyQt5.QtGui import QPixmap
 from PyQt5 import uic
 from pdi import *
+from threading import Thread
 
 class MainWindow(QMainWindow):
 
@@ -12,6 +13,7 @@ class MainWindow(QMainWindow):
     def __init__(self, parent = None) -> None:
         super().__init__(parent)
         uic.loadUi("mainwindow.ui",self)
+        
 
         self.R_value = None
         self.G_value = None
@@ -29,10 +31,8 @@ class MainWindow(QMainWindow):
         self.slider_blue.valueChanged.connect(self.value_change_B)
 
         #  Set Image
-
         self.preloadImage = QPixmap("./yoshi.png")
         self.image.setPixmap(self.preloadImage)
-
 
         self.button_click.clicked.connect(self.on_click)
         self.show()
@@ -47,18 +47,14 @@ class MainWindow(QMainWindow):
             self.image.setPixmap(self.preloadImage)
 
         elif(options == 1): 
-            imageBW = convertToBlackAndWhite(self.preloadImage.toImage())
-            loadImage = QPixmap.fromImage(imageBW)
-            self.image.setPixmap(loadImage)
+            convertToBlackAndWhite(self.preloadImage.toImage(),lambda image : self.setImage(image))
         
         elif(options == 2): 
-            imageGray = convertToGrayScale(self.preloadImage.toImage())
-            loadImage = QPixmap.fromImage(imageGray)
-            self.image.setPixmap(loadImage)
+            convertToGrayScale(self.preloadImage.toImage(),lambda image : self.setImage(image))
 
-        #elif(options == 3): 
-            # A implementar
-
+    def setImage(self,image : QImage):
+        loadImage = QPixmap.fromImage(image)
+        self.image.setPixmap(loadImage)
     def value_change_R(self):
         self.lbl_slider_value_R.setText(str(self.slider_red.value()))
         self.R_value = self.slider_red.value()
